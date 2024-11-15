@@ -3,7 +3,7 @@ build: clean
 	gcc main.c -o ./build/main
 
 trace: build
-	strace ./build/main > ./strace_output.txt 2>&1
+	cd build/; strace ./main 10 0 10 0 10000 100 > ./strace_output.txt 2>&1
 
 run:
 	cd build/; ./main $(filter-out $@,$(MAKECMDGOALS))
